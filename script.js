@@ -1,13 +1,18 @@
 function login() {
-    // Add authentication logic here (e.g., check credentials)
-    let username = document.getElementById("username").value;
+    let email = document.getElementById("email").value;
     let password = document.getElementById("password").value;
 
-    // Example: Simple check for demo purposes
-    if (username === "user" && password === "pass") {
-        alert("Login successful!");
-    } else {
-        alert("Invalid credentials. Please try again.");
+    // Email validation
+    let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        alert("Invalid email. Please enter a valid email address.");
+        return;
+    }
+
+    // Password length validation
+    if (password.length <= 6) {
+        alert("Invalid password. Password must be greater than 6 characters.");
+        return;
     }
 }
 
